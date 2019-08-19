@@ -6,11 +6,11 @@
 /*   By: ayano <ayano@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/10 12:46:56 by ayano             #+#    #+#             */
-/*   Updated: 2019/06/11 17:12:05 by ayano            ###   ########.fr       */
+/*   Updated: 2019/08/19 16:20:06 by ayano            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
 static int		ft_nline(char **str, char **line, int fd, int ret)
 {
