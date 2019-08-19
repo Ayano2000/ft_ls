@@ -6,7 +6,7 @@
 /*   By: ayano <ayano@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 14:05:51 by ayano             #+#    #+#             */
-/*   Updated: 2019/08/19 16:21:30 by ayano            ###   ########.fr       */
+/*   Updated: 2019/08/19 16:52:06 by ayano            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@
 
 typedef struct			s_options
 {
-	int					r : 1;
-	int					l : 1;
-	int					a : 1;
-	int					t : 1;
-	int					R : 1;					
+	int					r;
+	int					l;
+	int					a;
+	int					t;
+	int					R;					
 }						t_options;
 
 /*
