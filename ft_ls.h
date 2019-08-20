@@ -6,7 +6,7 @@
 /*   By: ayano <ayano@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 14:05:51 by ayano             #+#    #+#             */
-/*   Updated: 2019/08/20 09:12:06 by ayano            ###   ########.fr       */
+/*   Updated: 2019/08/20 09:31:54 by ayano            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,8 @@ void					exec_options(t_options **options);
 t_files					*init_files(void);
 
 /*
-** functions for the -l flag.
+** functions for all flags.
 */
-t_files					*exec_l_flag(t_files **files);
+t_files					*get_files(t_files **files);
 
 #endif

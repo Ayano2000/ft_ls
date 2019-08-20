@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exec_l_flag.c                                      :+:      :+:    :+:   */
+/*   get_files.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ayano <ayano@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 17:10:44 by ayano             #+#    #+#             */
-/*   Updated: 2019/08/20 09:14:16 by ayano            ###   ########.fr       */
+/*   Updated: 2019/08/20 09:30:54 by ayano            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
 
-t_files		*exec_l_flag(t_files **files)
+t_files		*get_files(t_files **files)
 {
 	DIR				*dir;
 	struct dirent	*file;
@@ -32,11 +32,6 @@ t_files		*exec_l_flag(t_files **files)
 		add_node(&current);
 		while (current->next != NULL)
 			current = current->next;
-	}
-	while ((*files))
-	{
-		printf("%s\n", (*files)->name);
-		(*files) = (*files)->next;
 	}
 	return (*files);
 }
