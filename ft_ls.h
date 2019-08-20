@@ -6,7 +6,7 @@
 /*   By: ayano <ayano@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 14:05:51 by ayano             #+#    #+#             */
-/*   Updated: 2019/08/19 17:13:09 by ayano            ###   ########.fr       */
+/*   Updated: 2019/08/20 08:52:41 by ayano            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,13 @@ typedef struct			s_files
 	int					time;
 	struct s_files		*head;
 	struct s_files		*next;
+	struct s_files		*prev;
 }						t_files;
 
+/*
+** functions to handle the node creation and freeing.
+*/
+t_files					*add_node(t_files **head);
 
 /*
 ** functions to set options, check errors and

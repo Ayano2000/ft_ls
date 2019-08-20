@@ -6,7 +6,7 @@
 /*   By: ayano <ayano@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 16:54:35 by ayano             #+#    #+#             */
-/*   Updated: 2019/08/19 17:13:39 by ayano            ###   ########.fr       */
+/*   Updated: 2019/08/20 08:52:45 by ayano            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ t_files	*init_files(void)
 	files->head = NULL;
 	files->name = NULL;
 	files->next = NULL;
+	files->prev = NULL;
 	files->time = 0;
 	return(files);	
 }
