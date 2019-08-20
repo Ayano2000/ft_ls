@@ -6,7 +6,7 @@
 /*   By: ayano <ayano@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 14:05:51 by ayano             #+#    #+#             */
-/*   Updated: 2019/08/20 15:52:38 by ayano            ###   ########.fr       */
+/*   Updated: 2019/08/20 16:44:41 by ayano            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,21 +25,6 @@
 # include <stdlib.h>
 # include <sys/stat.h>
 # include "../libft/libft.h"
-
-/*
-** Definitions for the permissions for the -l flag.
-*/
-// # define S_IFDIR 0040000
-// # define S_IFCHR 0020000
-// # define S_IRUSR 00400
-// # define S_IWUSR 00200
-// # define S_IXUSR 00100
-// # define S_IRGRP 00040
-// # define S_IWGRP 00020
-// # define S_IXGRP 00010
-// # define S_IROTH 00004
-// # define S_IWOTH 00002
-// # define S_IXOTH 00001
 
 typedef struct			s_options
 {
@@ -83,7 +68,7 @@ t_files					*init_files(void);
 ** functions for all flags.
 */
 t_files					*get_files(t_files **files);
-int						get_permissions(t_files **files);
+void					get_permissions(t_files **files);
 
 /*
 ** functions for the -l flag
