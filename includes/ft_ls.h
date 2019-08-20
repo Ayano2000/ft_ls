@@ -6,7 +6,7 @@
 /*   By: ayano <ayano@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 14:05:51 by ayano             #+#    #+#             */
-/*   Updated: 2019/08/20 16:44:41 by ayano            ###   ########.fr       */
+/*   Updated: 2019/08/20 17:15:53 by ayano            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,6 @@ void					get_permissions(t_files **files);
 */
 int						get_total(t_files **files);
 t_files					*exec_l_flag(t_files **files);
+void					get_nb_files(t_files **files);
 
 #endif

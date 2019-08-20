@@ -6,7 +6,7 @@
 /*   By: ayano <ayano@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/20 09:43:34 by ayano             #+#    #+#             */
-/*   Updated: 2019/08/20 16:44:57 by ayano            ###   ########.fr       */
+/*   Updated: 2019/08/20 17:15:30 by ayano            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,13 @@ t_files		*exec_l_flag(t_files **files)
 
 
 	total = get_total(files);
-	get_permissions(files);
 	current = (*files);
+	while (current->next != NULL)
+	{
+		get_permissions(&current);
+		get_nb_files(&current);
+		current = current->next;
+	}
 	exit(1);
 }
 
@@ -32,7 +37,7 @@ int			get_total(t_files **files)
 
 	current = (*files);
 	total = 0;
-	while (current)
+	while (current->next != NULL)
 	{
 		stat(current->name, &s_file);
 		total = total + s_file.st_blocks;
@@ -58,4 +63,27 @@ void	get_permissions(t_files **files)
     ft_putchar( (ret.st_mode & S_IROTH) ? 'r' : '-');
     ft_putchar( (ret.st_mode & S_IWOTH) ? 'w' : '-');
     ft_putchar( (ret.st_mode & S_IXOTH) ? 'x' : '-');
+}
+
+void	get_nb_files(t_files **files)
+{
+	t_files		*current;
+	struct stat	ret;
+	stat(current->name, &ret);
+	if (ret.st_nlink < 10)
+	{
+		ft_putstr("   ");
+		ft_putnbr(ret.st_nlink);
+	}
+	else if (ret.st_nlink >= 10 && ret.st_nlink< 100)
+	{
+		ft_putstr("  ");
+		ft_putnbr(ret.st_nlink);
+	}
+	else
+	{
+		ft_putstr(" ");
+		ft_putnbr(ret.st_nlink);
+	}
+	write(1, "\n", 1);
 }
