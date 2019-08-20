@@ -1,38 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exec_options.c                                     :+:      :+:    :+:   */
+/*   exec_l_flag.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ayano <ayano@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/19 16:54:35 by ayano             #+#    #+#             */
-/*   Updated: 2019/08/20 10:31:04 by ayano            ###   ########.fr       */
+/*   Created: 2019/08/20 09:43:34 by ayano             #+#    #+#             */
+/*   Updated: 2019/08/20 10:59:22 by ayano            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_ls.h"
 
-void	exec_options(t_options **options)
+t_files		*exec_l_flag(t_files **files)
 {
-	t_files		*files;
+	int		total;
 
-	files = init_files();
-	files = get_files(&files);
-	if ((*options)->l == 1)
-		exec_l_flag(&files);
-		// TODO -l -a -t -r -R.
-	return ;
+	total = get_total(files);
+	printf("TOTAL : %d\n", total);
+	exit (1);
+
 }
 
-t_files	*init_files(void)
+int			get_total(t_files **files)
 {
-	t_files		*files;
+	t_files		*current;
+	struct stat	s_file;
+	int			total;
 
-	files = (t_files *)malloc(sizeof(t_files));
-	files->head = NULL;
-	files->name = NULL;
-	files->next = NULL;
-	files->prev = NULL;
-	files->time = 0;
-	return(files);	
+	current = (*files);
+	total = 0;
+	while (current)
+	{
+		stat(current->name, &s_file);
+		total = total + s_file.st_blocks;
+		current = current->next;
+	}
+	return (total);
 }

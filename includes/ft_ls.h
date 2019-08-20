@@ -6,7 +6,7 @@
 /*   By: ayano <ayano@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 14:05:51 by ayano             #+#    #+#             */
-/*   Updated: 2019/08/20 09:35:59 by ayano            ###   ########.fr       */
+/*   Updated: 2019/08/20 10:35:52 by ayano            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # include <time.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include <sys/stat.h>
 # include "../libft/libft.h"
 
 typedef struct			s_options
@@ -67,5 +68,11 @@ t_files					*init_files(void);
 ** functions for all flags.
 */
 t_files					*get_files(t_files **files);
+
+/*
+** functions for the -l flag
+*/
+int						get_total(t_files **files);
+t_files					*exec_l_flag(t_files **files);
 
 #endif
