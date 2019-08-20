@@ -6,7 +6,7 @@
 /*   By: ayano <ayano@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/20 09:43:34 by ayano             #+#    #+#             */
-/*   Updated: 2019/08/20 17:15:30 by ayano            ###   ########.fr       */
+/*   Updated: 2019/08/20 17:31:46 by ayano            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,18 @@
 
 t_files		*exec_l_flag(t_files **files)
 {
-	int		total;
-	t_files	*current;
+	int				total;
+	t_files			*current;
 
 
 	total = get_total(files);
 	current = (*files);
+	printf("TOTAL %d\n", total);
 	while (current->next != NULL)
 	{
 		get_permissions(&current);
 		get_nb_files(&current);
+		get_user_id(&current);
 		current = current->next;
 	}
 	exit(1);
@@ -31,9 +33,9 @@ t_files		*exec_l_flag(t_files **files)
 
 int			get_total(t_files **files)
 {
-	t_files		*current;
-	struct stat	s_file;
-	int			total;
+	t_files			*current;
+	struct stat		s_file;
+	int				total;
 
 	current = (*files);
 	total = 0;
@@ -48,8 +50,8 @@ int			get_total(t_files **files)
 
 void	get_permissions(t_files **files)
 {
-	t_files		*current;
-	struct stat	ret;
+	t_files			*current;
+	struct stat		ret;
 
 	current = (*files);
 	stat(current->name, &ret);
@@ -67,8 +69,8 @@ void	get_permissions(t_files **files)
 
 void	get_nb_files(t_files **files)
 {
-	t_files		*current;
-	struct stat	ret;
+	t_files			*current;
+	struct stat		ret;
 	stat(current->name, &ret);
 	if (ret.st_nlink < 10)
 	{
@@ -84,6 +86,20 @@ void	get_nb_files(t_files **files)
 	{
 		ft_putstr(" ");
 		ft_putnbr(ret.st_nlink);
+	}
+}
+
+void	get_user_id(t_files **files)
+{
+	t_files			*current;
+	struct stat		ret;
+	struct passwd	*pwd;
+
+	stat(current->name, &ret);
+	if ((pwd = getpwuid(ret.st_uid)) != NULL)
+	{
+		ft_putchar(' ');
+		ft_putstr(pwd->pw_name);
 	}
 	write(1, "\n", 1);
 }
