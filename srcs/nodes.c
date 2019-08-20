@@ -6,11 +6,11 @@
 /*   By: ayano <ayano@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/20 08:46:37 by ayano             #+#    #+#             */
-/*   Updated: 2019/08/20 09:06:50 by ayano            ###   ########.fr       */
+/*   Updated: 2019/08/20 09:34:34 by ayano            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_ls.h"
+#include "../includes/ft_ls.h"
 
 t_files		*add_node(t_files **head)
 {

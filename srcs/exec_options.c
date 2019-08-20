@@ -6,11 +6,11 @@
 /*   By: ayano <ayano@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 16:54:35 by ayano             #+#    #+#             */
-/*   Updated: 2019/08/20 09:31:25 by ayano            ###   ########.fr       */
+/*   Updated: 2019/08/20 09:34:15 by ayano            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_ls.h"
+#include "../includes/ft_ls.h"
 
 void	exec_options(t_options **options)
 {

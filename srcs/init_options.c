@@ -6,11 +6,11 @@
 /*   By: ayano <ayano@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 15:04:46 by ayano             #+#    #+#             */
-/*   Updated: 2019/08/19 16:52:05 by ayano            ###   ########.fr       */
+/*   Updated: 2019/08/20 09:34:30 by ayano            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_ls.h"
+#include "../includes/ft_ls.h"
 
 /*
 ** malloc the struct and initialzie the variables.
