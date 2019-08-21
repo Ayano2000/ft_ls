@@ -94,5 +94,5 @@ void	get_time(t_files **files)
 		ft_putchar(time[3][i]);
 		i++;
 	}
-	// ft_putstr(ctime(&ret.st_mtime));	
+	ft_putchar(' ');
 }

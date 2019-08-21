@@ -19,8 +19,10 @@ t_files		*exec_l_flag(t_files **files)
 
 
 	total = get_total(files);
-	current = (*files);
-	printf("TOTAL %d\n", total);
+	// current = (*files);
+	current = order_files_l(files);
+	ft_putstr("TOTAL ");
+	ft_putnbr(total);
 	while (current->next != NULL)
 	{
 		get_permissions(&current);
@@ -29,6 +31,7 @@ t_files		*exec_l_flag(t_files **files)
 		get_group_id(&current);
 		get_file_size(&current);
 		get_time(&current);
+		ft_putstr(current->name);
 		write(1, "\n", 1);
 		current = current->next;
 	}
