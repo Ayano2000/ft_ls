@@ -28,6 +28,8 @@ t_files		*exec_l_flag(t_files **files)
 		get_user_id(&current);
 		get_group_id(&current);
 		get_file_size(&current);
+		get_time(&current);
+		write(1, "\n", 1);
 		current = current->next;
 	}
 	exit(1);

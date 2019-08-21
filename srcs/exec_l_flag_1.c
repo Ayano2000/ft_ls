@@ -36,19 +36,16 @@ void	get_file_size(t_files **files)
 	{
 		ft_putstr("      ");
 		ft_putnbr(ret.st_size);
-		write(1, "\n", 1);
 	}
 	else if (ret.st_size < 100 && ret.st_size > 9)
 	{
 		ft_putstr("     ");
 		ft_putnbr(ret.st_size);
-		write(1, "\n", 1);
 	}
 	else if (ret.st_size < 1000 && ret.st_size > 99)
 	{
 		ft_putstr("    ");
 		ft_putnbr(ret.st_size);
-		write(1, "\n", 1);
 	}
 	else
 		return(get_file_size_help_print(ret.st_size));
@@ -60,23 +57,42 @@ void	get_file_size_help_print(int nb)
 	{
 		ft_putstr("   ");
 		ft_putnbr(nb);
-		write(1, "\n", 1);
 	}
 	else if (nb < 100000 && nb > 9999)
 	{
 		ft_putstr("  ");
 		ft_putnbr(nb);
-		write(1, "\n", 1);
 	}
 	else if (nb < 1000000 && nb > 99999)
 	{
 		ft_putstr(" ");
 		ft_putnbr(nb);
-		write(1, "\n", 1);
 	}
 	else if (nb < 10000000 && nb > 999999)
 	{
 		ft_putnbr(nb);
-		write(1, "\n", 1);
 	}
+}
+
+void	get_time(t_files **files)
+{
+	t_files			*current;
+	struct stat		ret;
+	char			**time;
+	int				i;
+
+	i = 0;
+	stat(current->name, &ret);
+	time = ft_strsplit(ctime(&ret.st_mtime), ' ');
+	ft_putchar(' ');
+	ft_putstr(time[2]);
+	ft_putchar(' ');
+	ft_putstr(time[1]);
+	ft_putchar(' ');
+	while (i < 5)
+	{
+		ft_putchar(time[3][i]);
+		i++;
+	}
+	// ft_putstr(ctime(&ret.st_mtime));	
 }
