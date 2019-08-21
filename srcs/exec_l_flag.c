@@ -26,6 +26,8 @@ t_files		*exec_l_flag(t_files **files)
 		get_permissions(&current);
 		get_nb_files(&current);
 		get_user_id(&current);
+		get_group_id(&current);
+		get_file_size(&current);
 		current = current->next;
 	}
 	exit(1);
@@ -34,15 +36,15 @@ t_files		*exec_l_flag(t_files **files)
 int			get_total(t_files **files)
 {
 	t_files			*current;
-	struct stat		s_file;
+	struct stat		ret;
 	int				total;
 
 	current = (*files);
 	total = 0;
 	while (current->next != NULL)
 	{
-		stat(current->name, &s_file);
-		total = total + s_file.st_blocks;
+		stat(current->name, &ret);
+		total = total + ret.st_blocks;
 		current = current->next;
 	}
 	return (total);
@@ -101,5 +103,4 @@ void	get_user_id(t_files **files)
 		ft_putchar(' ');
 		ft_putstr(pwd->pw_name);
 	}
-	write(1, "\n", 1);
 }

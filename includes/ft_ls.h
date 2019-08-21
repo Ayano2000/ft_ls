@@ -77,5 +77,8 @@ int						get_total(t_files **files);
 t_files					*exec_l_flag(t_files **files);
 void					get_nb_files(t_files **files);
 void					get_user_id(t_files **files);
+void					get_group_id(t_files **files);
+void					get_file_size(t_files **files);
+void					get_file_size_help_print(int nb);
 
 #endif
