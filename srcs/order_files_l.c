@@ -23,10 +23,30 @@ t_files		*order_files_l(t_files **files)
 	{
 		if (current->name[0] == '.')
 		{
-			current->next->prev = current->prev;
-			head = current->next;
+			if (current->prev != NULL)
+				current->next->prev = current->prev;
 			free(current->name);
 			free(current);
 		}
+		else if (current->name[0] > current->next->name[0])
+			file_swap(&current, &current->next);
+	}
+
+}
+
+void		file_swap(t_files **first, t_files **second)
+{
+	if (first && second)
+	{
+		if ((*second)->next)
+			(*first)->next = (*second)->next;
+		else
+			(*first)->next = NULL;
+		(*first)->prev = second;
+		if ((*first)->prev)
+			(*second)->prev = ((*first)->prev);
+		else
+			(*second)->prev = NULL;
+		(*second)->next = first;
 	}
 }
