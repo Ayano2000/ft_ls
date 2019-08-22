@@ -20,12 +20,14 @@ t_files		*exec_l_flag(t_files **files)
 
 	total = get_total(files);
 	current = (*files);
-	// current = order_files_l(files);
+	order_files_l(&current);
 	ft_putstr("TOTAL ");
 	ft_putnbr(total);
 	ft_putchar('\n');
 	while (current->next != NULL)
 	{
+		while (current->name[0] == '.')
+			current = current->next;
 		get_permissions(&current);
 		get_nb_files(&current);
 		get_user_id(&current);

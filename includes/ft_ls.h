@@ -81,7 +81,8 @@ void					get_group_id(t_files **files);
 void					get_file_size(t_files **files);
 void					get_file_size_help_print(int nb);
 void					get_time(t_files **files);
-t_files					*order_files_l(t_files **files);
+void					order_files_l(t_files **files);
+char					**allocate_and_fill(int size, t_files **files);
 
 
 #endif

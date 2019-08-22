@@ -12,6 +12,51 @@
 
 #include "../includes/ft_ls.h"
 
-t_files		*order_files_l(t_files **files)
+char		**order_files_l(t_files **files)
 {
+	int		size;
+	t_files	*current;
+	t_files	*cursor;
+	char	**names;
+
+	current = (*files);
+	cursor = current;
+	size = 0;
+	while (cursor->next != NULL)
+	{
+		if (cursor->name[0] != '.')
+			size++;
+		cursor = cursor->next;
+	}
+	names = allocate_and_fill(size, &current);
+	sort_by_ascii(names);
+}
+
+char		**allocate_and_fill(int size, t_files **files)
+{
+	t_files	*current;
+	char	**array;
+	int		i;
+
+	current = (*files);
+	array = (char **)malloc(sizeof(char *) * (size + 1));
+	i = 0;
+	while (current->next)
+	{
+		if (current->name[0] != '.')
+		{
+			array[i] = ft_strdup(current->name);
+			current = current->next;
+			i++;
+		}
+		else
+			current = current->next;
+	}
+	array[i] = 0;
+	return (array);
+}
+
+void		sort_by_ascii(char *str)
+{
+
 }
