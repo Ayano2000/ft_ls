@@ -19,10 +19,11 @@ t_files		*exec_l_flag(t_files **files)
 
 
 	total = get_total(files);
-	// current = (*files);
-	current = order_files_l(files);
+	current = (*files);
+	// current = order_files_l(files);
 	ft_putstr("TOTAL ");
 	ft_putnbr(total);
+	ft_putchar('\n');
 	while (current->next != NULL)
 	{
 		get_permissions(&current);
