@@ -86,6 +86,7 @@ char					**allocate_and_fill(int size, t_files **files);
 int						is_sorted(char **array);
 void					sort_by_ascii(char	**array);
 int						find_longest(t_files **files);
+int						find_longest_grp(t_files **files);
 
 
 #endif

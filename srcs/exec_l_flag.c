@@ -113,17 +113,24 @@ void	get_user_id(t_files **files)
 
 	i = 0;
 	stat(current->name, &ret);
-	// max_len = find_longest(files);
+	max_len = find_longest(files);
 	if ((pwd = getpwuid(ret.st_uid)) != NULL)
 	{
-		ft_putchar(' ');
-		if (ft_strlen(pwd->pw_name) <= 5)
+		if (ft_strlen(pwd->pw_name) < max_len)
+		{
+			i = ft_strlen(pwd->pw_name);
+			ft_putchar(' ');
 			ft_putstr(pwd->pw_name);
-		else
-			while (i < 5)
+			while (i < max_len)
 			{
-				ft_putchar(pwd->pw_name[i]);
+				ft_putchar(' ');
 				i++;
 			}
+		}
+		else
+		{
+			ft_putchar(' ');
+			ft_putstr(pwd->pw_name);
+		}
 	}
 }

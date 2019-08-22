@@ -15,27 +15,39 @@
 int		find_longest(t_files **files)
 {
 	t_files			*current;
-	int				i;
+	int 			i;
 	struct stat		ret;
 	struct passwd	*pwd;
-	char			*str;
-	
-	stat(current->name, &ret);
-	pwd = getpwuid(ret.st_uid);
+
 	current = (*files);
-	str = ft_strdup(pwd->pw_name);
-	i = ft_strlen(str);
-	free(str);
-	while (current->next)
+	i = 0;
+	while (current->next != NULL)
 	{
 		stat(current->name, &ret);
-		pwd = getpwuid(ret.st_uid);
-		str = ft_strdup(pwd->pw_name);
-		if (ft_strlen(str) > i)
-			i = ft_strlen(str);
-		free(str);
+		if ((pwd = getpwuid(ret.st_uid)) != NULL)
+			if (ft_strlen(pwd->pw_name) > i)
+				i = ft_strlen(pwd->pw_name);
 		current = current->next;
 	}
-	printf("LONGEST : %d\n", i);
+	return (i);
+}
+
+int		find_longest_grp(t_files **files)
+{
+	t_files			*current;
+	int 			i;
+	struct stat		ret;
+	struct group	*grp;
+
+	current = (*files);
+	i = 0;
+	while (current->next != NULL)
+	{
+		stat(current->name, &ret);
+		if ((grp = getgrgid(ret.st_gid)) != NULL)
+			if (ft_strlen(grp->gr_name) > i)
+				i = ft_strlen(grp->gr_name);
+		current = current->next;
+	}
 	return (i);
 }

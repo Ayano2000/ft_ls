@@ -18,20 +18,39 @@ void	get_group_id(t_files **files)
 	struct stat		ret;
 	struct group	*grp;
 	int				i;
+	int				max_len;
 
 	i = 0;
+	max_len = find_longest_grp(files);
 	stat(current->name, &ret);
 	if ((grp = getgrgid(ret.st_gid)) != NULL)
 	{
-		ft_putstr("  ");
-		if (ft_strlen(grp->gr_name) <= 5)
+		if (ft_strlen(grp->gr_name) < max_len)
+		{
+			i = ft_strlen(grp->gr_name);
+			ft_putstr("  ");
 			ft_putstr(grp->gr_name);
-		else
-			while (i < 5)
+			while (i < max_len)
 			{
-				ft_putchar(grp->gr_name[i]);
+				ft_putchar(' ');
 				i++;
 			}
+		}
+		else
+		{
+			ft_putstr("  ");
+			ft_putstr(grp->gr_name);
+		}
+		
+		// ft_putstr("  ");
+		// if (ft_strlen(grp->gr_name) <= 5)
+		// 	ft_putstr(grp->gr_name);
+		// else
+		// 	while (i < 5)
+		// 	{
+		// 		ft_putchar(grp->gr_name[i]);
+		// 		i++;
+		// 	}
 	} 
 }
 
