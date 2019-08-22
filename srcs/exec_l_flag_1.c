@@ -41,16 +41,6 @@ void	get_group_id(t_files **files)
 			ft_putstr("  ");
 			ft_putstr(grp->gr_name);
 		}
-		
-		// ft_putstr("  ");
-		// if (ft_strlen(grp->gr_name) <= 5)
-		// 	ft_putstr(grp->gr_name);
-		// else
-		// 	while (i < 5)
-		// 	{
-		// 		ft_putchar(grp->gr_name[i]);
-		// 		i++;
-		// 	}
 	} 
 }
 
