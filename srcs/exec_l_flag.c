@@ -102,11 +102,20 @@ void	get_user_id(t_files **files)
 	t_files			*current;
 	struct stat		ret;
 	struct passwd	*pwd;
+	int				i;
 
+	i = 0;
 	stat(current->name, &ret);
 	if ((pwd = getpwuid(ret.st_uid)) != NULL)
 	{
 		ft_putchar(' ');
-		ft_putstr(pwd->pw_name);
+		if (ft_strlen(pwd->pw_name) <= 5)
+			ft_putstr(pwd->pw_name);
+		else
+			while (i < 5)
+			{
+				ft_putchar(pwd->pw_name[i]);
+				i++;
+			}
 	}
 }

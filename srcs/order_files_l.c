@@ -14,5 +14,4 @@
 
 t_files		*order_files_l(t_files **files)
 {
-	
 }

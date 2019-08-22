@@ -17,12 +17,21 @@ void	get_group_id(t_files **files)
 	t_files			*current;
 	struct stat		ret;
 	struct group	*grp;
+	int				i;
 
+	i = 0;
 	stat(current->name, &ret);
 	if ((grp = getgrgid(ret.st_gid)) != NULL)
 	{
 		ft_putstr("  ");
-		ft_putstr(grp->gr_name);
+		if (ft_strlen(grp->gr_name) <= 5)
+			ft_putstr(grp->gr_name);
+		else
+			while (i < 5)
+			{
+				ft_putchar(grp->gr_name[i]);
+				i++;
+			}
 	} 
 }
 
@@ -85,7 +94,13 @@ void	get_time(t_files **files)
 	stat(current->name, &ret);
 	time = ft_strsplit(ctime(&ret.st_mtime), ' ');
 	ft_putchar(' ');
-	ft_putstr(time[2]);
+	if (ft_strlen(time[2]) == 1)
+	{
+		ft_putchar(' ');
+		ft_putstr(time[2]);
+	}
+	else
+		ft_putstr(time[2]);
 	ft_putchar(' ');
 	ft_putstr(time[1]);
 	ft_putchar(' ');
