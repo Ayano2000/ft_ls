@@ -81,8 +81,11 @@ void					get_group_id(t_files **files);
 void					get_file_size(t_files **files);
 void					get_file_size_help_print(int nb);
 void					get_time(t_files **files);
-void					order_files_l(t_files **files);
+char					**order_files_l(t_files **files);
 char					**allocate_and_fill(int size, t_files **files);
+int						is_sorted(char **array);
+void					sort_by_ascii(char	**array);
+int						find_longest(t_files **files);
 
 
 #endif

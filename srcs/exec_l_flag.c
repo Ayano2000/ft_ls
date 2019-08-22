@@ -16,17 +16,21 @@ t_files		*exec_l_flag(t_files **files)
 {
 	int				total;
 	t_files			*current;
+	char			**names;
+	int				i;
 
 
 	total = get_total(files);
 	current = (*files);
-	order_files_l(&current);
+	names = order_files_l(&current);
+	i = 0;
 	ft_putstr("TOTAL ");
 	ft_putnbr(total);
 	ft_putchar('\n');
-	while (current->next != NULL)
+	while (names[i] != '\0')
 	{
-		while (current->name[0] == '.')
+		current = (*files);
+		while (ft_strcmp(names[i], current->name) != 0)
 			current = current->next;
 		get_permissions(&current);
 		get_nb_files(&current);
@@ -36,7 +40,7 @@ t_files		*exec_l_flag(t_files **files)
 		get_time(&current);
 		ft_putstr(current->name);
 		write(1, "\n", 1);
-		current = current->next;
+		i++;
 	}
 	exit(1);
 }
@@ -105,9 +109,11 @@ void	get_user_id(t_files **files)
 	struct stat		ret;
 	struct passwd	*pwd;
 	int				i;
+	int				max_len;
 
 	i = 0;
 	stat(current->name, &ret);
+	// max_len = find_longest(files);
 	if ((pwd = getpwuid(ret.st_uid)) != NULL)
 	{
 		ft_putchar(' ');
