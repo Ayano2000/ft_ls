@@ -3,25 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   exec_l_flag_1.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ayano <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: ayano <ayano@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/21 13:14:01 by ayano             #+#    #+#             */
-/*   Updated: 2019/08/21 13:14:03 by ayano            ###   ########.fr       */
+/*   Updated: 2019/08/23 09:24:50 by ayano            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_ls.h"
 
-void	get_group_id(t_files **files)
+void	get_group_id(t_files **files, int max_len)
 {
 	t_files			*current;
 	struct stat		ret;
 	struct group	*grp;
 	int				i;
-	int				max_len;
 
 	i = 0;
-	max_len = find_longest_grp(files);
+	current = (*files);
 	stat(current->name, &ret);
 	if ((grp = getgrgid(ret.st_gid)) != NULL)
 	{
@@ -49,6 +48,7 @@ void	get_file_size(t_files **files)
 	t_files			*current;
 	struct stat		ret;
 
+	current = (*files);
 	stat(current->name, &ret);
 	if (ret.st_size < 10)
 	{

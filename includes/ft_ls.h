@@ -6,7 +6,7 @@
 /*   By: ayano <ayano@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 14:05:51 by ayano             #+#    #+#             */
-/*   Updated: 2019/08/20 17:32:05 by ayano            ###   ########.fr       */
+/*   Updated: 2019/08/23 09:16:55 by ayano            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int						get_total(t_files **files);
 t_files					*exec_l_flag(t_files **files);
 void					get_nb_files(t_files **files);
 void					get_user_id(t_files **files);
-void					get_group_id(t_files **files);
+void					get_group_id(t_files **files, int max_len);
 void					get_file_size(t_files **files);
 void					get_file_size_help_print(int nb);
 void					get_time(t_files **files);

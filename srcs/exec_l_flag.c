@@ -6,7 +6,7 @@
 /*   By: ayano <ayano@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/20 09:43:34 by ayano             #+#    #+#             */
-/*   Updated: 2019/08/20 17:31:46 by ayano            ###   ########.fr       */
+/*   Updated: 2019/08/23 09:25:03 by ayano            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,14 @@ t_files		*exec_l_flag(t_files **files)
 	t_files			*current;
 	char			**names;
 	int				i;
+	int				max_len;
 
 
 	total = get_total(files);
 	current = (*files);
 	names = order_files_l(&current);
 	i = 0;
+	max_len = find_longest_grp(files);
 	ft_putstr("TOTAL ");
 	ft_putnbr(total);
 	ft_putchar('\n');
@@ -35,7 +37,7 @@ t_files		*exec_l_flag(t_files **files)
 		get_permissions(&current);
 		get_nb_files(&current);
 		get_user_id(&current);
-		get_group_id(&current);
+		get_group_id(&current, max_len);
 		get_file_size(&current);
 		get_time(&current);
 		ft_putstr(current->name);
