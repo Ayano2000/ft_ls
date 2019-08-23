@@ -1,38 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_files.c                                        :+:      :+:    :+:   */
+/*   exec_R_flag_1.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ayano <ayano@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/19 17:10:44 by ayano             #+#    #+#             */
-/*   Updated: 2019/08/23 12:32:18 by ayano            ###   ########.fr       */
+/*   Created: 2019/08/23 12:05:18 by ayano             #+#    #+#             */
+/*   Updated: 2019/08/23 12:07:59 by ayano            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_ls.h"
 
-
-t_files		*get_files(t_files **files)
+int		longest_name(t_files **files)
 {
-	DIR				*dir;
-	struct dirent	*file;
-	t_files			*current;
+	t_files		*current;
+	int			i;
 
 	current = (*files);
-	dir = opendir(".");
-	if (dir == NULL)
+	i = 0;
+	while (current->next != NULL)
 	{
-		ft_putstr("Unable to open the current directory");
-		exit(1);
+		if (ft_strlen(current->name) > i)
+			i = ft_strlen(current->name);
+		current = current->next;
 	}
-	while ((file = readdir(dir)) != NULL)
-	{
-		current->name = ft_strdup(file->d_name);
-		add_node(&current);
-		while (current->next != NULL)
-			current = current->next;
-	}
-		ft_putstr("HERE2\n");
-	return (*files);
+	return (i);
 }
