@@ -6,7 +6,7 @@
 /*   By: ayano <ayano@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 17:10:44 by ayano             #+#    #+#             */
-/*   Updated: 2019/08/23 12:32:18 by ayano            ###   ########.fr       */
+/*   Updated: 2019/08/23 13:07:17 by ayano            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,5 @@ t_files		*get_files(t_files **files)
 		while (current->next != NULL)
 			current = current->next;
 	}
-		ft_putstr("HERE2\n");
 	return (*files);
 }

@@ -6,7 +6,7 @@
 /*   By: ayano <ayano@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/23 09:31:03 by ayano             #+#    #+#             */
-/*   Updated: 2019/08/23 12:34:54 by ayano            ###   ########.fr       */
+/*   Updated: 2019/08/23 13:31:44 by ayano            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,20 @@ void        exec_R_flag(void)
 
 	files = init_files();
     files = get_files(&files);
-	ft_putstr("HERE1\n");
 	max_len = longest_name(&files);
+	printf("%d\n", max_len);
 	current = files;
 	i = 0;
     while (current->next)
 	{
-		if (current->name[0] == '.')
+		while (current->name[0] == '.')
 			current = current->next;
 		if (stat(current->name, &dir_or_not) == 0)
 		{
-			if (ft_strlen(current->name) < max_len)
+			}
+			if (dir_or_not.st_mode & S_IFDIR)
 			{
-				if (current->prev == NULL)
+				if (ft_strlen(current->name) < max_len)
 				{
 					i = ft_strlen(current->name);
 					ft_putstr(current->name);
@@ -44,37 +45,46 @@ void        exec_R_flag(void)
 						i++;
 					}
 				}
+				else
+				{
+					ft_putstr(current->name);
+				}
+				
+				current->head = get_files_in_dir(&current, current->name);
+				current = current->next;
 			}
-			if (dir_or_not.st_mode & S_IFDIR)
+			else
 			{
 				if (ft_strlen(current->name) < max_len)
 				{
-					if (current->prev == NULL)
-					{
-						i = ft_strlen(current->name);
-						ft_putstr(current->name);
-						while (i < max_len)
-						{
-							ft_putstr(" ");
-							i++;
-						}
+					i = ft_strlen(current->name);
+					ft_putstr(current->name);
+					while (i < max_len)
+					{	
+						ft_putstr(" ");
+						i++;
 					}
 				}
-				current->head = get_files_in_dir(current->name);
+				else
+				{
+					ft_putstr(current->name);
+				}
+				
+				current = current->next;
 			}
-		}
-		current = current->next;
 	}
 	exit(1);
 }
 
-t_files		*get_files_in_dir(char *name)
+t_files		*get_files_in_dir(t_files **files, char *name)
 {
 	DIR				*dir;
 	t_files			*current;
 	struct dirent	*file;
 
 	dir = opendir(name);
+	(*files)->head = init_files();
+	current = (*files)->head;
 	while ((file = readdir(dir)) != NULL)
 	{
 		current->name = ft_strdup(file->d_name);

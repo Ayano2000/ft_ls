@@ -6,7 +6,7 @@
 /*   By: ayano <ayano@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 14:05:51 by ayano             #+#    #+#             */
-/*   Updated: 2019/08/23 12:24:33 by ayano            ###   ########.fr       */
+/*   Updated: 2019/08/23 13:16:08 by ayano            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ int						find_longest_grp(t_files **files);
 */
 int						longest_name(t_files **files);
 void       				exec_R_flag(void);
-t_files					*get_files_in_dir(char *name);
+t_files					*get_files_in_dir(t_files **files, char *name);
 
 
 #endif
