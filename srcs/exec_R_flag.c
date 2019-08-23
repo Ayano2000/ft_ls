@@ -6,7 +6,7 @@
 /*   By: ayano <ayano@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/23 09:31:03 by ayano             #+#    #+#             */
-/*   Updated: 2019/08/23 13:31:44 by ayano            ###   ########.fr       */
+/*   Updated: 2019/08/23 13:41:02 by ayano            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void        exec_R_flag(void)
 				{
 					i = ft_strlen(current->name);
 					ft_putstr(current->name);
-					while (i < max_len)
+					while (i < max_len && current->next != NULL)
 					{
 						ft_putstr(" ");
 						i++;
@@ -59,11 +59,12 @@ void        exec_R_flag(void)
 				{
 					i = ft_strlen(current->name);
 					ft_putstr(current->name);
-					while (i < max_len)
+					while (i < max_len && current->next != NULL)
 					{	
 						ft_putstr(" ");
 						i++;
 					}
+
 				}
 				else
 				{
