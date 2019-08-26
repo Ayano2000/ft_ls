@@ -6,7 +6,7 @@
 /*   By: ayano <ayano@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 14:05:51 by ayano             #+#    #+#             */
-/*   Updated: 2019/08/26 08:11:06 by ayano            ###   ########.fr       */
+/*   Updated: 2019/08/26 08:47:02 by ayano            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ typedef struct			s_files
 {
 	char				*name;
 	int					time;
-	struct s_files		*head;
+	int					is_dir;
+	char				*perm;
 	struct s_files		*next;
 	struct s_files		*prev;
 }						t_files;
