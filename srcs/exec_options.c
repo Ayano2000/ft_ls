@@ -6,7 +6,7 @@
 /*   By: ayano <ayano@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 16:54:35 by ayano             #+#    #+#             */
-/*   Updated: 2019/08/23 12:14:24 by ayano            ###   ########.fr       */
+/*   Updated: 2019/08/26 08:12:55 by ayano            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ void	exec_options(t_options **options)
 
 	files = init_files();
 	files = get_files(&files);
-	if ((*options)->l == 1)
-		exec_l_flag(&files);
-	else if ((*options)->R == 1)
-		exec_R_flag();
-		// TODO -l -a -t -r -R.
+	while (files->next != NULL)
+	{
+		printf("%s\n", files->name);
+		files = files->next;
+	}
 	return ;
 }
 

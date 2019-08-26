@@ -6,7 +6,7 @@
 /*   By: ayano <ayano@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 14:05:51 by ayano             #+#    #+#             */
-/*   Updated: 2019/08/23 13:16:08 by ayano            ###   ########.fr       */
+/*   Updated: 2019/08/26 08:11:06 by ayano            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,31 +69,6 @@ t_files					*init_files(void);
 */
 t_files					*get_files(t_files **files);
 void					get_permissions(t_files **files);
-
-/*
-** functions for the -l flag
-*/
-int						get_total(t_files **files);
-t_files					*exec_l_flag(t_files **files);
-void					get_nb_files(t_files **files);
-void					get_user_id(t_files **files);
-void					get_group_id(t_files **files, int max_len);
-void					get_file_size(t_files **files);
-void					get_file_size_help_print(int nb);
-void					get_time(t_files **files);
-char					**order_files_l(t_files **files);
-char					**allocate_and_fill(int size, t_files **files);
-int						is_sorted(char **array);
-void					sort_by_ascii(char	**array);
-int						find_longest(t_files **files);
-int						find_longest_grp(t_files **files);
-
-/*
-** functions for the -R flag.
-*/
-int						longest_name(t_files **files);
-void       				exec_R_flag(void);
-t_files					*get_files_in_dir(t_files **files, char *name);
 
 
 #endif
