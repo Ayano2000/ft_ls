@@ -6,7 +6,7 @@
 /*   By: ayano <ayano@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 15:04:46 by ayano             #+#    #+#             */
-/*   Updated: 2019/08/20 09:34:30 by ayano            ###   ########.fr       */
+/*   Updated: 2019/08/26 08:16:53 by ayano            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ void		check_input(int argc, char **argv)
 			ft_putchar(argv[i][1]);
 			ft_putstr("\n");
 			ft_putendl("usage: ls [-alrtR] [file ...]");
+			exit(1);
 		}
 		i++;
 	}

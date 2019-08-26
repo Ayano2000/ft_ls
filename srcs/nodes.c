@@ -6,12 +6,15 @@
 /*   By: ayano <ayano@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/20 08:46:37 by ayano             #+#    #+#             */
-/*   Updated: 2019/08/20 09:34:34 by ayano            ###   ########.fr       */
+/*   Updated: 2019/08/26 08:22:16 by ayano            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_ls.h"
 
+/*
+** adds a node to the end of the list.
+*/
 t_files		*add_node(t_files **head)
 {
 	t_files		*new;

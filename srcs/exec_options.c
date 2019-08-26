@@ -6,12 +6,15 @@
 /*   By: ayano <ayano@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 16:54:35 by ayano             #+#    #+#             */
-/*   Updated: 2019/08/26 08:12:55 by ayano            ###   ########.fr       */
+/*   Updated: 2019/08/26 08:21:33 by ayano            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_ls.h"
 
+/*
+** Will call correct functions based on the flags given.
+*/
 void	exec_options(t_options **options)
 {
 	t_files		*files;
@@ -26,6 +29,9 @@ void	exec_options(t_options **options)
 	return ;
 }
 
+/*
+** initialize the flags struct.
+*/
 t_files	*init_files(void)
 {
 	t_files		*files;
