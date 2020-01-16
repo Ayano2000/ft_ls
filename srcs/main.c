@@ -18,6 +18,16 @@ int     main(int argc, char **argv) {
 
     files = init_files();
     files = get_files(&files);
+    files = set_users(&files);
+    files = set_groups(&files);
+    files = set_size(&files);
+    // while(files->next != NULL) {
+    //     printf("%-12s ", files->name);
+    //     printf("%-12s ", files->user);
+    //     printf("%-12s", files->group);
+    //     printf("%-12s\n", files->size);
+    //     files = files->next;
+    // }
     if (argc > 1) {
         options = parse(argc, argv);
     }
