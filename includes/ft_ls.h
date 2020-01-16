@@ -26,50 +26,11 @@
 # include <sys/stat.h>
 # include "../libft/libft.h"
 
-typedef struct			s_options
+typedef struct	s_options
 {
-	int					r;
-	int					l;
-	int					a;
-	int					t;
-	int					R;					
-}						t_options;
+	char *options;
+}				t_options;
 
-typedef struct			s_files
-{
-	char				*name;
-	int					time;
-	int					is_dir;
-	char				*perm;
-	struct s_files		*next;
-	struct s_files		*prev;
-}						t_files;
-
-/*
-** functions to handle the node creation and freeing.
-*/
-t_files					*add_node(t_files **head);
-
-/*
-** functions to set options, check errors and
-** initialize the struct.
-*/
-t_options				*init_options(int argc, char **argv);
-void					set_options(t_options **options, int argc, char **argv);
-void					check_input(int argc, char **argv);
-
-/*
-** function that determines which function to call
-** and then prints the resultant.
-*/
-void					exec_options(t_options **options);
-t_files					*init_files(void);
-
-/*
-** functions for all flags.
-*/
-t_files					*get_files(t_files **files);
-void					get_permissions(t_files **files);
-
+t_options		*init_options(int argc, char **argv);
 
 #endif

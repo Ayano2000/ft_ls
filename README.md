@@ -1,3 +1,3 @@
 # ft_ls
 ft_ls project done @WeThinkCode
-INCOMPLETE.
+-l -a -r -t -R.
