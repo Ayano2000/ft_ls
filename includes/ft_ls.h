@@ -48,5 +48,7 @@ typedef struct  s_files
 
 t_options		*parse(int argc, char **argv);
 t_files			*get_files(t_files **files);
+t_files			*init_files(void);
+t_files			*add_node(t_files **head);
 
 #endif

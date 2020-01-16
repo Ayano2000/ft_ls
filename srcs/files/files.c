@@ -27,11 +27,10 @@ t_files		*get_files(t_files **files)
 	}
 	while ((file = readdir(dir)) != NULL)
 	{
-        printf("%s\n", file->d_name);
-		// current->name = ft_strdup(file- >d_name);
-		// add_node(&current);
-		// while (current->next != NULL)
-		// 	current = current->next;
+		current->name = ft_strdup(file->d_name);
+		add_node(&current);
+		while (current->next != NULL)
+			current = current->next;
 	}
 	return (*files);
 }
