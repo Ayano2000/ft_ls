@@ -53,5 +53,7 @@ t_files			*add_node(t_files **head);
 t_files			*set_users(t_files **current);
 t_files			*set_groups(t_files **current);
 t_files			*set_size(t_files **current);
+t_files			*set_time(t_files **current);
+t_files			*set_permissions(t_files **current);
 
 #endif
