@@ -56,4 +56,6 @@ t_files			*set_time(t_files **current);
 t_files			*set_permissions(t_files **current);
 t_files			*set_links(t_files **current);
 
+void			output(t_files **data);
+
 #endif

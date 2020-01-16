@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 ft_ls:
-	gcc -o ft_ls -g ./srcs/*.c ./srcs/parser/*.c ./srcs/files/*.c ./libft/libft.a
+	gcc -o ft_ls -g ./srcs/*.c ./srcs/parser/*.c ./srcs/output/*.c ./srcs/files/*.c ./libft/libft.a
 	
 fclean:
 	@$(RM) ./ft_ls

@@ -24,19 +24,11 @@ int     main(int argc, char **argv) {
     files = set_time(&files);
     files = set_permissions(&files);
     files = set_links(&files);
-    // while(files->next != NULL) {
-    //     printf("%-12s ", files->permissions);
-    //     printf("%-6d ", files->links);
-    //     printf("%-12s ", files->name);
-    //     printf("%-12s ", files->user);
-    //     printf("%-12s", files->group);
-    //     printf("%-12s ", files->size);
-    //     printf("%-12s\n", files->time);
-    //     files = files->next;
-    // }
+    output(&files);
     if (argc > 1) {
         options = parse(argc, argv);
     }
+
 
     return (0);
 
