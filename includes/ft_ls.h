@@ -42,7 +42,6 @@ typedef struct  s_files
 	char	*size;
 	char	*time;
 	char	*name;
-	bool	directory;
 	struct	s_files	*next;
 }				t_files;
 
@@ -55,5 +54,6 @@ t_files			*set_groups(t_files **current);
 t_files			*set_size(t_files **current);
 t_files			*set_time(t_files **current);
 t_files			*set_permissions(t_files **current);
+t_files			*set_links(t_files **current);
 
 #endif

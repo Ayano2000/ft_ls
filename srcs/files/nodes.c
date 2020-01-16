@@ -41,7 +41,6 @@ t_files     *init_files(void)
     file_node->size = NULL;
     file_node->time = NULL;
     file_node->name = NULL;
-    file_node->directory = false;
     file_node->next = NULL;
     return(file_node);
 }
