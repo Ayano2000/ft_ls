@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   output.c                                           :+:      :+:    :+:   */
+/*   padding.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ayano <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/16 21:18:18 by ayano             #+#    #+#             */
-/*   Updated: 2020/01/16 21:18:21 by ayano            ###   ########.fr       */
+/*   Created: 2020/01/16 23:40:30 by ayano             #+#    #+#             */
+/*   Updated: 2020/01/16 23:40:31 by ayano            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/ft_ls.h"
 
-void       output(t_files **data)
+void    ft_padstr(char *str, int length)
 {
-    t_files     *head;
+    int     len;
 
-    head = (*data);
-    while(head->next != NULL) {
-        ft_padstr(head->permissions, 10);
-        ft_putnbr(head->links);
+    len = ft_strlen(str) - 1;
+    ft_putstr(str);
+    while(len <= length)
+    {
         ft_putchar(' ');
-        ft_padstr(head->user, 5);
-        ft_padstr(head->group, 12);
-        ft_padstr(head->size, 12);
-        ft_padstr(head->name, 12);
-        ft_padstr(head->time, 12);
-        head = head->next;
+        len++;
     }
+    return ;
 }

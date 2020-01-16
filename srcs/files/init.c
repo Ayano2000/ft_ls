@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   output.c                                           :+:      :+:    :+:   */
+/*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ayano <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/16 21:18:18 by ayano             #+#    #+#             */
-/*   Updated: 2020/01/16 21:18:21 by ayano            ###   ########.fr       */
+/*   Created: 2020/01/17 01:27:29 by ayano             #+#    #+#             */
+/*   Updated: 2020/01/17 01:27:31 by ayano            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/ft_ls.h"
 
-void       output(t_files **data)
+t_files     *init_data(t_files **files)
 {
-    t_files     *head;
-
-    head = (*data);
-    while(head->next != NULL) {
-        ft_padstr(head->permissions, 10);
-        ft_putnbr(head->links);
-        ft_putchar(' ');
-        ft_padstr(head->user, 5);
-        ft_padstr(head->group, 12);
-        ft_padstr(head->size, 12);
-        ft_padstr(head->name, 12);
-        ft_padstr(head->time, 12);
-        head = head->next;
-    }
+    (*files) = get_files(files);
+    (*files) = set_users(files);
+    (*files) = set_groups(files);
+    (*files) = set_size(files);
+    (*files) = set_time(files);
+    (*files) = set_permissions(files);
+    (*files) = set_links(files);
+    return (*files);
 }

@@ -45,6 +45,7 @@ typedef struct  s_files
 	struct	s_files	*next;
 }				t_files;
 
+/* GATHERING INFO */
 t_options		*parse(int argc, char **argv);
 t_files			*get_files(t_files **files);
 t_files			*init_files(void);
@@ -55,7 +56,11 @@ t_files			*set_size(t_files **current);
 t_files			*set_time(t_files **current);
 t_files			*set_permissions(t_files **current);
 t_files			*set_links(t_files **current);
+t_files			*init_data(t_files **files);
 
+/* OUTPUT HANDLING */
 void			output(t_files **data);
+void			ft_padstr(char *str, int length);
+
 
 #endif
