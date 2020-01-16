@@ -13,10 +13,16 @@
 #include "../includes/ft_ls.h"
 
 int     main(int argc, char **argv) {
-    t_options *options;
+    t_options   *options;
+    t_files     *files;
+
+    // WHAT THE FUCK?
+    files = get_files(&files);
+    // IDK
     if (argc > 1) {
         options = parse(argc, argv);
     }
+
     return (0);
 
 }

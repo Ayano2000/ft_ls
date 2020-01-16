@@ -24,14 +24,29 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <sys/stat.h>
+# include <stdbool.h> 
 # include "../libft/libft.h"
 
 typedef struct	s_options
 {
-	char *options;
-	char **targets;
+	char	*options;
+	char	**targets;
 }				t_options;
 
+typedef struct  s_files
+{
+	char	*permissions;
+	int		links;
+	char	*user;
+	char	*group;
+	char	*size;
+	char	*time;
+	char	*name;
+	bool	directory;
+	struct	s_files	*next;
+}				t_files;
+
 t_options		*parse(int argc, char **argv);
+t_files			*get_files(t_files **files);
 
 #endif
