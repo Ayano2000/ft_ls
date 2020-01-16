@@ -29,8 +29,9 @@
 typedef struct	s_options
 {
 	char *options;
+	char **targets;
 }				t_options;
 
-t_options		*init_options(int argc, char **argv);
+t_options		*parse(int argc, char **argv);
 
 #endif
