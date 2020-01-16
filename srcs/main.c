@@ -17,11 +17,6 @@ int     main(int argc, char **argv) {
     if (argc > 1) {
         options = parse(argc, argv);
     }
-    int i = 0;
-    printf("FLASGS -> %s\n", options->options);
-    while (options->targets[i] != '\0') {
-        printf("options -> %s\n", options->targets[i]);
-        i++;
-    }
     return (0);
+
 }
