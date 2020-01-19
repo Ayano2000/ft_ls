@@ -15,10 +15,12 @@
 int     main(int argc, char **argv) {
     t_options   *options;
     t_files     *files;
+    char        **order;
 
     files = init_files();
     files = init_data(&files);
-    output(&files);
+    order = ascii_sort(&files);
+    output(order, &files);
     if (argc > 1) {
         options = parse(argc, argv);
     }

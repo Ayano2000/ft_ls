@@ -24,6 +24,7 @@ t_files     *add_node(t_files **head)
 	if (current && new)
 	{
 		current->next = new;
+		new->previous = current;
 		new->next = NULL;
 	}
 	return (*head);
@@ -42,5 +43,6 @@ t_files     *init_files(void)
     file_node->time = NULL;
     file_node->name = NULL;
     file_node->next = NULL;
+	file_node->previous = NULL;
     return(file_node);
 }
