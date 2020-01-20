@@ -20,7 +20,12 @@ int     main(int argc, char **argv) {
     files = init_files();
     files = init_data(&files);
     order = ascii_sort(&files);
-    output(order, &files);
+    while (files->next != NULL)
+    {
+        ft_putendl(files->name);
+        files = files->next;
+    }
+    // output(order, &files);
     if (argc > 1) {
         options = parse(argc, argv);
     }

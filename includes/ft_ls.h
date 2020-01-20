@@ -60,7 +60,7 @@ t_files			*set_links(t_files **current);
 t_files			*init_data(t_files **files);
 
 /* OUTPUT HANDLING */
-void			output(char **order, t_files **data);
+void			output(t_files **data);
 void			ft_padstr(char *str, int length);
 char			**ascii_sort(t_files **files);
 int				is_sorted(char **array);
