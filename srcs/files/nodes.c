@@ -44,5 +44,6 @@ t_files     *init_files(void)
     file_node->name = NULL;
     file_node->next = NULL;
 	file_node->previous = NULL;
+	file_node->sub_files = NULL;
     return(file_node);
 }

@@ -19,18 +19,12 @@ int     main(int argc, char **argv) {
 
     files = init_files();
     files = init_data(&files);
-    order = ascii_sort(&files);
-    while (files->next != NULL)
-    {
-        ft_putendl(files->name);
-        files = files->next;
-    }
-    // output(order, &files);
+    files = add_subdir(&files);
+    /* order = ascii_sort(&files); */ /* WORKS */
     if (argc > 1) {
         options = parse(argc, argv);
     }
-
-
+    output(&files);
     return (0);
 
 }

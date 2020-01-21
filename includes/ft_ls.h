@@ -42,13 +42,14 @@ typedef struct  s_files
 	char	*size;
 	char	*time;
 	char	*name;
+	struct	s_files	*sub_files;
 	struct	s_files	*next;
 	struct	s_files	*previous;
 }				t_files;
 
 /* GATHERING INFO */
 t_options		*parse(int argc, char **argv);
-t_files			*get_files(t_files **files);
+t_files			*get_files(t_files **files, char *dir);
 t_files			*init_files(void);
 t_files			*add_node(t_files **head);
 t_files			*set_users(t_files **current);
@@ -58,11 +59,13 @@ t_files			*set_time(t_files **current);
 t_files			*set_permissions(t_files **current);
 t_files			*set_links(t_files **current);
 t_files			*init_data(t_files **files);
+t_files			*add_subdir_files(char *name);
+t_files			*add_subdir(t_files **files);
 
 /* OUTPUT HANDLING */
 void			output(t_files **data);
 void			ft_padstr(char *str, int length);
-char			**ascii_sort(t_files **files);
+char			**ascii_sort(t_files **files); // NOT SURE NEEDED!
 int				is_sorted(char **array);
 void			sort_by_ascii(char	**array);
 

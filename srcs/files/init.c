@@ -14,7 +14,7 @@
 
 t_files     *init_data(t_files **files)
 {
-    (*files) = get_files(files);
+    (*files) = get_files(files, ".");
     (*files) = set_users(files);
     (*files) = set_groups(files);
     (*files) = set_size(files);
