@@ -22,7 +22,7 @@ void       output(t_files **data)
         ft_putnbr(head->links);
         ft_putchar(' ');
         ft_padstr(head->user, 5);
-        ft_padstr(head->group, 12);
+        ft_padstr(head->group, 9);
         ft_padstr(head->size, 12);
         ft_padstr(head->name, 12);
         ft_padstr(head->time, 12);

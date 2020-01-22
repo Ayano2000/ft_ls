@@ -49,7 +49,7 @@ typedef struct  s_files
 
 /* GATHERING INFO */
 t_options		*parse(int argc, char **argv);
-t_files			*get_files(t_files **files, char *dir);
+t_files			*get_files(t_files **files, char *directory);
 t_files			*init_files(void);
 t_files			*add_node(t_files **head);
 t_files			*set_users(t_files **current);
@@ -59,8 +59,11 @@ t_files			*set_time(t_files **current);
 t_files			*set_permissions(t_files **current);
 t_files			*set_links(t_files **current);
 t_files			*init_data(t_files **files);
+
+/* TO BE USED FOR -R BECAUSE IM A CHOP AND DIDNT THINK OF THIS BEFOREHAND */
 t_files			*add_subdir_files(char *name);
 t_files			*add_subdir(t_files **files);
+t_files			*init_subdir_data(t_files **files);
 
 /* OUTPUT HANDLING */
 void			output(t_files **data);

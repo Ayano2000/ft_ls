@@ -24,7 +24,7 @@ int     main(int argc, char **argv) {
     if (argc > 1) {
         options = parse(argc, argv);
     }
-    output(&files);
+    // output(&files);
     return (0);
 
 }

@@ -12,14 +12,14 @@
 
 #include "../../includes/ft_ls.h"
 
-t_files		*get_files(t_files **files)
+t_files		*get_files(t_files **files, char *directory)
 {
 	DIR				*dir;
 	struct dirent	*file;
 	t_files			*current;
 
 	current = (*files);
-	dir = opendir(".");
+	dir = opendir(directory);
 	if (dir == NULL)
 	{
 		ft_putstr("Unable to open the current directory");
@@ -32,5 +32,6 @@ t_files		*get_files(t_files **files)
 		while (current->next != NULL)
 			current = current->next;
 	}
+	closedir(dir);
 	return (*files);
 }
