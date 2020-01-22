@@ -30,7 +30,7 @@ t_files		*add_subdir(t_files **files)
 		{
 			current->sub_files = add_subdir_files(current->name);
 			output(&(current)->sub_files);
-			break ;
+			// break ;
 		}
 		printf("\n\n");
 		current =current->next;
